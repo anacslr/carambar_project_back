@@ -11,7 +11,7 @@ await Joke.sync();
 await jokesSeed();
 
 const app= express();
-const port = process.env.APP_PORT;
+const port = process.env.APP_PORT || 3310;
 
 app.use(
   cors({
@@ -29,6 +29,6 @@ import router from '../routes/router.js';
 app.use("/api/v1", router)
 
 
-app.listen(3310, () => {
+app.listen(APP_PORT, () => {
     console.log(`Server is running on port ${port}`);
 });
