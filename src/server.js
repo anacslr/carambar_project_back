@@ -4,6 +4,8 @@ import { connectDB } from '../db.js';
 import { Joke } from '../models/jokes.js';
 import jokesSeed from '../seed.js';
 import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "../swagger.js";
 
 //conection to DB
 connectDB()
@@ -27,6 +29,8 @@ app.use(express.json())
 import router from '../routes/router.js';
 
 app.use("/api/v1", router)
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 app.listen(port, () => {
