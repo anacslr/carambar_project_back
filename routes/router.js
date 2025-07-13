@@ -17,8 +17,8 @@ import jokeControllers from "../controllers/jokeControllers.js";
  *           application/json:
  *             schema:
  *              type: array
- *               items:
- *                 $ref: '#/components/schemas/Joke'
+ *              items:
+ *                $ref: '#/components/schemas/Joke'
  */
 router.get("/blagues", jokeControllers.getAllJokes);
 /**
