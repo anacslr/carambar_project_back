@@ -16,25 +16,9 @@ import jokeControllers from "../controllers/jokeControllers.js";
  *         content:
  *           application/json:
  *             schema:
- *               type: array
+ *              type: array
  *               items:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                   example: 1
- *                 question:
- *                   type: string
- *                   example: "Pourquoi les canards ont-ils autant de plumes ?"
- *                 answer:
- *                   type: string
- *                   example: "Pour couvrir leur derrière !"
- *                 createdAt:
- *                   type: string
- *                   format: date-time
- *                 updatedAt:
- *                   type: string
- *                   format: date-time
+ *                 $ref: '#/components/schemas/Joke'
  */
 router.get("/blagues", jokeControllers.getAllJokes);
 /**
@@ -50,23 +34,7 @@ router.get("/blagues", jokeControllers.getAllJokes);
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                   example: 1
- *                 question:
- *                   type: string
- *                   example: "Pourquoi les canards ont-ils autant de plumes ?"
- *                 answer:
- *                   type: string
- *                   example: "Pour couvrir leur derrière !"
- *                 createdAt:
- *                   type: string
- *                   format: date-time
- *                 updatedAt:
- *                   type: string
- *                   format: date-time
+ *               $ref: '#/components/schemas/Joke'
  *       404:
  *         description: Aucune blague trouvée
  */
@@ -91,23 +59,7 @@ router.get("/blagues/random", jokeControllers.getRandomJoke);
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                   example: 1
- *                 question:
- *                   type: string
- *                   example: "Pourquoi les canards ont-ils autant de plumes ?"
- *                 answer:
- *                   type: string
- *                   example: "Pour couvrir leur derrière !"
- *                 createdAt:
- *                   type: string
- *                   format: date-time
- *                 updatedAt:
- *                   type: string
- *                   format: date-time
+ *               $ref: '#/components/schemas/Joke'
  *       404:
  *         description: Blague non trouvée
  */
@@ -148,3 +100,27 @@ router.get("/blagues/:id", jokeControllers.getJokeById);
 router.post("/blagues", jokeControllers.addJoke);
 
 export default router;
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Joke:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 1
+ *         question:
+ *           type: string
+ *           example: "Pourquoi les canards ont-ils autant de plumes ?"
+ *         answer:
+ *           type: string
+ *           example: "Pour couvrir leur derrière !"
+ *         createdAt:
+ *           type: string
+ *           format: date-time
+ *         updatedAt:
+ *           type: string
+ *           format: date-time
+ */
