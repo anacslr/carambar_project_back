@@ -29,6 +29,6 @@ import router from '../routes/router.js';
 app.use("/api/v1", router)
 
 
-app.listen(APP_PORT, () => {
+app.listen(process.env.APP_PORT, () => {
     console.log(`Server is running on port ${port}`);
 });
