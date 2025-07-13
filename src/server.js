@@ -15,7 +15,7 @@ const port = process.env.APP_PORT || 3310;
 
 app.use(
   cors({
-    origin: ["https://anacslr.github.io/carambar_project_front"],
+    origin: ["https://anacslr.github.io"],
   }),
 );
 
