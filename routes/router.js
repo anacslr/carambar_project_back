@@ -18,7 +18,23 @@ import jokeControllers from "../controllers/jokeControllers.js";
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Joke'
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   example: 1
+ *                 question:
+ *                   type: string
+ *                   example: "Pourquoi les canards ont-ils autant de plumes ?"
+ *                 answer:
+ *                   type: string
+ *                   example: "Pour couvrir leur derrière !"
+ *                 createdAt:
+ *                   type: string
+ *                   format: date-time
+ *                 updatedAt:
+ *                   type: string
+ *                   format: date-time
  */
 router.get("/blagues", jokeControllers.getAllJokes);
 /**
@@ -75,7 +91,23 @@ router.get("/blagues/random", jokeControllers.getRandomJoke);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Joke'
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   example: 1
+ *                 question:
+ *                   type: string
+ *                   example: "Pourquoi les canards ont-ils autant de plumes ?"
+ *                 answer:
+ *                   type: string
+ *                   example: "Pour couvrir leur derrière !"
+ *                 createdAt:
+ *                   type: string
+ *                   format: date-time
+ *                 updatedAt:
+ *                   type: string
+ *                   format: date-time
  *       404:
  *         description: Blague non trouvée
  */
